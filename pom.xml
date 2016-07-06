@@ -15,6 +15,8 @@
         <maven.compiler.target>1.7</maven.compiler.target>
         <javaee.version>7.0</javaee.version>
         <jackson.version>2.4.1</jackson.version>
+        <maven-release-plugin>2.5.3</maven-release-plugin>
+        <project.scm.id>github</project.scm.id>
     </properties>
 
     <repositories>
@@ -56,5 +58,21 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${maven-release-plugin}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-gitexe</artifactId>
+                        <version>1.8.1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
     
 </project>
