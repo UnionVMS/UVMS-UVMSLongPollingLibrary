@@ -5,25 +5,29 @@
     <artifactId>uvms-longpolling</artifactId>
     <version>2.0.14-SNAPSHOT</version>
     <name>uvms-longpolling</name>
-
     <packaging>jar</packaging>
     
+    <parent>
+        <groupId>fish.focus.maven</groupId>
+	    <artifactId>focus-pom</artifactId>
+	    <version>1.5</version>
+        <relativePath />
+    </parent>
+    
+    
     <properties>
-        <release.branch.name>uvms-3.0.1-C3PO</release.branch.name>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
         <javaee.version>7.0</javaee.version>
         <jackson.version>2.4.1</jackson.version>
-        <maven-release-plugin>2.5.3</maven-release-plugin>
         <project.scm.id>github</project.scm.id>
+        <scm.connection>scm:git:https://github.com/UnionVMS/UVMS-UVMSLongPollingLibrary.git</scm.connection>
+        <scm.url>scm:git:https://github.com/UnionVMS/UVMS-UVMSLongPollingLibrary.git</scm.url>
     </properties>
 
     <repositories>
         <repository>
             <id>focus-repo</id>
             <name>Focus nexus repository</name>
-            <url>http://nexus.focus.fish/</url>
+            <url>http://nexus.focus.fish/nexus</url>
         </repository>
     </repositories>
 
@@ -41,9 +45,9 @@
     </distributionManagement>
 
     <scm>
-        <connection>scm:git:https://github.com/UnionVMS/UVMS-UVMSLongPollingLibrary.git</connection>
-      <tag>HEAD</tag>
-  </scm>
+        <connection>${scm.connection}</connection>
+       <tag>HEAD</tag>
+   </scm>
     
     <dependencies>   
         <dependency>
@@ -59,21 +63,5 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>${maven-release-plugin}</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.maven.scm</groupId>
-                        <artifactId>maven-scm-provider-gitexe</artifactId>
-                        <version>1.8.1</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-        </plugins>
-    </build>
     
 </project>
